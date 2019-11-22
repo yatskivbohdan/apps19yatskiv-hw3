@@ -6,9 +6,16 @@ import java.util.Arrays;
 
 // Sorts elements using MyComparator to compare them
 public class SortDecorator extends SmartArrayDecorator{
+    private static MyComparator function;
     public SortDecorator(SmartArray smartArray, MyComparator func) {
         super(smartArray);
-        array = Arrays.stream(smartArray.toArray()).sorted(func).toArray();
+        function = func;
+        array = toArray();
+    }
+
+    @Override
+    public Object[] toArray() {
+        return Arrays.stream(smartArray.toArray()).sorted(function).toArray();
     }
 
     @Override

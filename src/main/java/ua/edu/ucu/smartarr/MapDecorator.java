@@ -6,9 +6,16 @@ import java.util.Arrays;
 
 // Map every element to another object using MyFunction
 public class MapDecorator extends SmartArrayDecorator{
+    private static MyFunction function;
     public MapDecorator(SmartArray smartArray, MyFunction func) {
         super(smartArray);
-        array = Arrays.stream(smartArray.toArray()).map(func::apply).toArray();
+        function = func;
+        array = toArray();
+    }
+
+    @Override
+    public java.lang.Object[] toArray() {
+        return Arrays.stream(smartArray.toArray()).map(function::apply).toArray();
     }
 
     @Override
