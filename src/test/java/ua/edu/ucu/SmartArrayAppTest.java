@@ -1,6 +1,7 @@
 package ua.edu.ucu;
 
 import org.junit.Test;
+import ua.edu.ucu.smartarr.SmartArray;
 
 import java.security.spec.RSAOtherPrimeInfo;
 
@@ -14,7 +15,9 @@ public class SmartArrayAppTest {
     @Test
     public void testFilterPositiveIntegersSortAndMultiplyBy2() {
         Integer[] integers = {-1, 2, 0, 1, -5, 3};
-
+        //Constructor test here
+        SmartArrayApp smartArrayApp = new SmartArrayApp();
+        //
         Integer[] res =
                 SmartArrayApp.filterPositiveIntegersSortAndMultiplyBy2(integers);
         Integer[] expectedRes = {2, 4, 6};
@@ -35,7 +38,6 @@ public class SmartArrayAppTest {
         String[] studentNames =
                 SmartArrayApp.findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(students);
         String[] expectedStudentNames = {"Borek Tomasz", "Kranga Antons", "Sutter Burr"};
-
         assertArrayEquals(expectedStudentNames, studentNames);
     }
 }
