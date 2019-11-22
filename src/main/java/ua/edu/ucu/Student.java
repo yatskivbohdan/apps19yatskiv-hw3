@@ -39,12 +39,12 @@ class Student {
     @Override
     public int hashCode() {
         return getName().hashCode() + getSurname().hashCode()
-                + (int)getGPA() + getYear();
+                + (int) getGPA() + getYear();
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Student){
+        if (obj instanceof Student) {
             return hashCode() == obj.hashCode();
         }
         return false;
